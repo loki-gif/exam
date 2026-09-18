@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Predict</h1>
+      <form action="/predict" method="post">
+        <div class="grid">
+          {% for nf in numeric_features %}
+          <label>
+            <span>{{ nf.replace('_',' ').title() }}</span>
+            <input name="{{nf}}" type="number" step="any" placeholder="Enter {{nf}}">
+          </label>
+          {% endfor %}
+
+          {% for prefix, opts in options.items() %}
+          <label>
+            <span>{{ prefix.replace('_',' ').title() }}</span>
+            <select name="{{prefix}}">
+              <option value="">-- Select --</option>
+              {% for opt in opts %}
+              <option value="{{opt}}">{{opt}}</option>
+              {% endfor %}
+            </select>
+          </label>
+          {% endfor %}
+        </div>
+
+        <div class="actions">
+          <button type="submit">Predict</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

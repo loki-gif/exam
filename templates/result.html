@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Result</h1>
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% else %}
+        <div class="result">
+          <p><strong>Prediction:</strong> {{ result.prediction }}</p>
+        </div>
+      {% endif %}
+      <p><a href="/">Back</a></p>
+    </div>
+  </body>
+</html>
